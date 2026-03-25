@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perks AI   Bahrain's AI Automation Agency</title>
-  <meta name="description" content="Perks builds and deploys custom AI automation systems   intelligent chatbots, workflow engines, and automated pipelines   that eliminate manual workload for businesses across Bahrain." />
+  <title>Perks AI | Bahrain's AI Automation Agency</title>
+  <meta name="description" content="Perks builds and deploys custom AI automation systems — intelligent chatbots, workflow engines, and automated pipelines — eliminating manual workload for businesses across Bahrain and the Gulf." />
+  <meta property="og:title" content="Perks AI | Bahrain's AI Automation Agency" />
+  <meta property="og:description" content="Bahrain's first youth-led AI automation agency. Custom chatbots, workflow engines, and automated pipelines built for Gulf businesses." />
+  <meta property="og:url" content="https://perks-site.netlify.app/" />
+  <meta name="theme-color" content="#060C1A" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -472,7 +476,7 @@
   <!-- URGENCY BAR -->
   <div id="urgency-bar">
     <span class="urgency-bar-dot"></span>
-    Q2 2026   Only <strong>3 pilot spots</strong> remaining this quarter.
+    Q2 2026 · Only <strong>3 pilot spots</strong> remaining this quarter.
     <a href="book.html">Reserve Your Spot →</a>
   </div>
 
@@ -521,7 +525,7 @@
       <div class="hero-content">
         <div class="scarcity-badge">
           <span class="scarcity-dot"></span>
-          Q2 2026   Only 3 pilot slots remaining this quarter
+          Q2 2026 · Only 3 pilot spots remaining this quarter
         </div>
         <div class="hero-tag" style="margin-top: 12px;">
           <span class="hero-tag-dot"></span>
@@ -531,7 +535,7 @@
         <h1>Launch Your Automated<br />Workflows <span class="gradient-text">Into Orbit.</span></h1>
 
         <p class="hero-sub">
-          Perks builds and deploys custom AI automation systems   intelligent chatbots, workflow engines, and automated pipelines   that eliminate the manual workload slowing your business down.
+          Perks builds and deploys custom AI automation systems — intelligent chatbots, workflow engines, and automated pipelines — that eliminate the manual workload slowing your business down.
         </p>
 
         <div class="hero-ctas">
@@ -1353,7 +1357,7 @@
         <div class="footer-copy">© 2026 Perks AI. All Rights Reserved. A Subsidiary of Al Hilal Group.</div>
         <div class="footer-links">
           <a href="#services">Services</a>
-          <a href="#pricing">Pricing</a>
+          <a href="#calculator">Calculator</a>
           <a href="#contact">Contact</a>
         </div>
       </div>
@@ -1486,14 +1490,18 @@ void main(void){
       resize();
       window.addEventListener('resize', resize);
 
+      let shaderPaused = false;
+      document.addEventListener('visibilitychange', () => { shaderPaused = document.hidden; });
       function loop(now) {
-        gl.clearColor(0,0,0,1);
-        gl.clear(gl.COLOR_BUFFER_BIT);
-        gl.useProgram(prog);
-        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-        gl.uniform2f(uRes, canvas.width, canvas.height);
-        gl.uniform1f(uTime, now * 1e-3);
-        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        if (!shaderPaused) {
+          gl.clearColor(0,0,0,1);
+          gl.clear(gl.COLOR_BUFFER_BIT);
+          gl.useProgram(prog);
+          gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+          gl.uniform2f(uRes, canvas.width, canvas.height);
+          gl.uniform1f(uTime, now * 1e-3);
+          gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        }
         requestAnimationFrame(loop);
       }
       requestAnimationFrame(loop);
