@@ -400,6 +400,71 @@
     .footer-links { display: flex; gap: 24px; }
     .footer-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; }
     .footer-links a:hover { color: var(--text-secondary); }
+
+    /* ═══════════════ MOBILE (≤768px) ═══════════════ */
+    @media (max-width: 768px) {
+      /* Urgency bar: smaller text so it stays one line */
+      #urgency-bar { font-size: 11px; padding: 8px 12px; }
+      /* Navbar: sits right below urgency bar (which is ~34px on mobile) */
+      #navbar { top: 34px; }
+      /* Reduce all section padding */
+      section { padding: 60px 0; }
+      /* Hero: cut the huge top gap */
+      #hero { padding: 110px 0 60px; }
+      /* Hero CTAs: wrap and stack neatly */
+      .hero-ctas { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .btn-lg { padding: 15px 28px; font-size: 15px; }
+      /* Hero pullquote: tighter */
+      .hero-pullquote { padding: 14px 18px; }
+      /* Pain section cards: tighter */
+      .pain-mckinsey { padding: 24px 20px; }
+      /* Why cards: stack number + text */
+      .why-card { flex-direction: column; gap: 10px; padding: 24px 20px; }
+      .why-num { font-size: 36px; min-width: auto; }
+      /* Calculator: tighter padding */
+      .calc-inputs, .calc-result { padding: 24px 20px; }
+      /* Closing urgency + CTA sections */
+      #cta { padding: 60px 0; }
+      .cta-box { padding: 36px 22px; }
+      .cta-box p { font-size: 15px; }
+      /* Team cards: tighter */
+      .member-card { padding: 28px 22px; }
+      /* Member links always visible on mobile */
+      .member-linkedin { opacity: 1 !important; transform: none !important; }
+      /* Trust strip: wrap logos */
+      .trust-row { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .trust-logos { gap: 8px; }
+      /* Pipeline capacity: already flex-direction:column via earlier rule */
+      .pipeline-capacity { padding: 20px; }
+      .pipeline-row { padding: 16px 18px; gap: 10px; }
+      /* Footer: stack */
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; flex-wrap: wrap; gap: 16px; }
+      /* Process steps: ensure arrows hidden between stacked cards */
+      .process-step::after { display: none; }
+      /* Industry tabs: wrap */
+      .industry-tabs { flex-wrap: wrap; gap: 8px; }
+      .industry-tab { font-size: 13px; padding: 8px 14px; }
+      /* Safebh: already handled but reduce heading */
+      .safebh-card h2 { font-size: clamp(1.4rem, 5vw, 2rem); }
+      /* Section labels: tighter */
+      .section-label { font-size: 11px; }
+      /* Ain section iframe height */
+      iframe { height: 240px !important; }
+    }
+
+    /* ═══════════════ SMALL PHONE (≤480px) ═══════════════ */
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      #urgency-bar { font-size: 10px; }
+      #navbar { top: 30px; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .cta-box { padding: 28px 16px; border-radius: 16px; }
+      .member-card { padding: 22px 16px; }
+      .calc-inputs, .calc-result { padding: 18px 16px; }
+      h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
+      h2 { font-size: clamp(1.5rem, 7vw, 1.8rem); }
+    }
   </style>
 </head>
 <body>
